@@ -1,0 +1,15 @@
+
+<h1>Listing streamers</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @twitchindices.each do |streamer| %>
+    <tr>
+      <td><%= streamer.name %></td>
+      <td><%= link_to 'Show', twitchindex_path(streamer) %></td>
+    </tr>
+  <% end %>
+</table>
