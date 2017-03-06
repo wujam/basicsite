@@ -12,7 +12,7 @@ class TwitchindicesController < ApplicationController
     @twitchindex = Twitchindex.new 
   end
   def show
-    @twitchindex = getUserInfo(Twitchindex.find(params[:id]).name)
+    @twitchindex = Twitchindex.find(params[:id]).name
   end
   def edit
   end
