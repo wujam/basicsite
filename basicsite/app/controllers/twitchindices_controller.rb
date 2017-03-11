@@ -5,20 +5,35 @@ class TwitchindicesController < ApplicationController
   def create
     @twitchindex = Twitchindex.new(twitchindex_params)
 
-    @twitchindex.save
-    redirect_to @twitchindex
+    if @twitchindex.save
+      redirect_to @twitchindex
+    else
+      render 'new'
+    end
   end
   def new
     @twitchindex = Twitchindex.new 
   end
   def show
-    @twitchindex = Twitchindex.find(params[:id]).name
+    @twitchindex = Twitchindex.find(params[:id])
   end
   def edit
+    @twitchindex = Twitchindex.find(params[:id])
+    
+    if @twitchindex.update(twitchindex_params)
+      redirect_to @twitchindex
+    else
+      render 'edit'
+    end
   end
   def update
   end
+
   def destroy
+    @twitchindex = Twitchindex.find(params[:id])
+    @twitchindex.destroy
+
+    redirect_to twitchindices_path
   end
   private
     def twitchindex_params

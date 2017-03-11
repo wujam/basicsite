@@ -10,6 +10,12 @@
     <tr>
       <td><%= streamer.name %></td>
       <td><%= link_to 'Show', twitchindex_path(streamer) %></td>
+      <td><%= link_to 'Edit', edit_twitchindex_path(streamer) %></td>
+      <td><%= link_to 'Destroy', twitchindex_path(streamer),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+
+<%= link_to 'Add streamer', new_twitchindex_path %>

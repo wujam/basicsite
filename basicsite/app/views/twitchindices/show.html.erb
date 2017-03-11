@@ -1,11 +1,14 @@
 <p>
   <strong>Title:</strong>
   <iframe
-    src= <%= "http://player.twitch.tv/?channel=#{@twitchindex}" %>
+    src= <%= "http://player.twitch.tv/?channel=#{@twitchindex.name}" %>
     height="720"
     width="1280"
     frameborder="0"
     scrolling="no"
     allowfullscreen="true">
   </iframe>
+
+  <%= link_to 'Back', twitchindices_path %>
+  <%= link_to 'Edit', edit_twitchindex_path(@twitchindex) %>
 </p>
